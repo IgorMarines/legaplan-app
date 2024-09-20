@@ -15,12 +15,12 @@ button {
     }
 
     &.default {
-        background-color: #E7EEFB;
+        background: #E7EEFB;
         color: #000;
     }
 
     &.danger {
-        background-color: red;
+        background: linear-gradient(90deg, #D30707 0%, #F05353 68.65%);
         color: #fff;
     }
 }

@@ -1,17 +1,46 @@
-.todo-card
-{
+.todo-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.buttons-container{
+    display: flex;
+    justify-content: space-between;
+
+    @media (max-width: 599px) {
+        width: 100%;
+        display: flex;
+        flex-direction: column-reverse;
+        align-items: center;
+
+        button {
+            width: 100% !important;
+            margin: 0px !important;
+        }
+        
+        button:first-child {
+            margin-top: 16px !important;
+        }
+
+        button:last-child {
+            margin-top: 32px !important;
+        }
+    }
+}
+
+.todo-card {
     width: 450px;
     height: 446px;
     display: flex;
+    align-items: center;
     flex-direction: column;
-
-
     box-shadow: 0px 1px 2px 0px #1018280D;
     border: 1px solid #EAECF0;
     border-radius: 16px;
     overflow: hidden;
     background-color: #fff;
-   
 
     h6 {
         text-align: center;
@@ -20,15 +49,23 @@
         font-weight: 400;
         color: #0000008A;
     }
+
+    @media (max-width: 768px) {
+        width: 100%;
+    }
 }
 
-.todo-items {
+.todo-list {
     display: flex;
     align-items: center;
     flex-direction: column;
+
+    @media (max-width: 768px) {
+        width: 90%;
+    }
 }
 
-.inputStyle {
+.input-field {
     width: 100%;
     height: 51px;
     border: 1px solid #D7DDE9;
@@ -38,3 +75,10 @@
     font-size: 14px;
     color: #0000008A;
 }
+
+.action-button-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
