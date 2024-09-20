@@ -1,0 +1,26 @@
+// 'create' | 'default' | 'danger'
+
+button {
+    all: unset;
+    padding: 16px 0;
+    border-radius: 8px;
+    width: 100%;
+    text-align: center;
+    cursor: pointer;
+
+    &.create {
+        background: linear-gradient(90deg, #0796D3 0%, #53C0F0 68.65%);
+
+        color: #fff;
+    }
+
+    &.default {
+        background-color: #E7EEFB;
+        color: #000;
+    }
+
+    &.danger {
+        background-color: red;
+        color: #fff;
+    }
+}
