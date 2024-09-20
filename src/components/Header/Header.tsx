@@ -1,7 +1,12 @@
 import Image from "next/image";
 import './styles.scss';
+import {HeaderDataInfo} from '../../utils/DateNow';
 
 export default function Header() {
+
+    
+
+
     return (
         <header>
             <div className="header-container">
@@ -12,7 +17,7 @@ export default function Header() {
                     <h1 >Bem-vindo de volta, Marcus</h1>
                 </div>
                 <div>
-                    <p>Segunda, 01 de dezembro de 2025</p>
+                    <p>{HeaderDataInfo}</p>
                 </div>
             </div>
         </header>
