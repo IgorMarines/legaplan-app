@@ -5,12 +5,12 @@ import './styles.scss';
 import { Button } from '../Button/Button';
 import { Modal } from '../Modal/Modal';
 import { Input } from '../Input/Input';
-import useStore from '@/store/useStore'; 
+import useStore from '@/store/useStore';
 
 const ToDoCard: React.FC<IToDoCard> = ({ items }) => {
     const pendingItems = items.filter((item: IToDoItem) => !item.isCompleted);
     const completedItems = items.filter((item: IToDoItem) => item.isCompleted);
-    
+
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [newTaskTitle, setNewTaskTitle] = useState('');
 
@@ -49,7 +49,7 @@ const ToDoCard: React.FC<IToDoCard> = ({ items }) => {
     };
 
     return (
-        <div>
+        <div className='todo-wrapper'>
             <Modal
                 title="Nova tarefa"
                 isOpen={isModalOpen}
@@ -59,12 +59,12 @@ const ToDoCard: React.FC<IToDoCard> = ({ items }) => {
                     <Input
                         label="Título"
                         labelClassName='labelStyle'
-                        className='inputStyle'
+                        className='input-field'
                         placeholder='Digite'
                         value={newTaskTitle}
                         onChange={(e) => setNewTaskTitle(e.target.value)}
                     />
-                    <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+                    <div className='buttons-container'>
                         <Button
                             width={186}
                             margin='24px 0'
@@ -85,7 +85,7 @@ const ToDoCard: React.FC<IToDoCard> = ({ items }) => {
 
             <div className="todo-card">
                 <h6>Suas tarefas de hoje</h6>
-                <div className="todo-items" style={{ maxHeight: '200px', overflowY: 'auto' }}>
+                <div className="todo-list" style={{ maxHeight: '200px', overflowY: 'auto' }}>
                     {pendingItems.length ? (
                         pendingItems.map((item: IToDoItem) => (
                             <div key={item.id}>
@@ -98,7 +98,7 @@ const ToDoCard: React.FC<IToDoCard> = ({ items }) => {
                 </div>
 
                 <h6>Tarefas finalizadas</h6>
-                <div className="todo-items" style={{ maxHeight: '200px', overflowY: 'auto' }}>
+                <div className="todo-list" style={{ maxHeight: '200px', overflowY: 'auto' }}>
                     {completedItems.length ? (
                         completedItems.map((item: IToDoItem) => (
                             <TaskCard item={item} key={item.id} />
@@ -109,12 +109,15 @@ const ToDoCard: React.FC<IToDoCard> = ({ items }) => {
                 </div>
             </div>
 
-            <Button
-                margin='24px 0'
-                text="Adicionar nova tarefa"
-                action={() => setIsModalOpen(true)}
-                variant="create"
-            />
+            <div className='action-button-container'>
+                <Button
+                    width={450}
+                    margin='24px 0'
+                    text="Adicionar nova tarefa"
+                    action={() => setIsModalOpen(true)}
+                    variant="create"
+                />
+            </div>
         </div>
     );
 };
