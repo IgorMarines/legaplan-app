@@ -20,7 +20,7 @@ export default function Main({ children }: Readonly<{ children: React.ReactNode 
     const userReadWarn = getAcceptedWarnFromLocalStorage();
 
     const copyToClipboard = (text: string) => {
-        navigator.clipboard.writeText(text).then(() => {
+        navigator.clipboard.writeText(text.toLowerCase()).then(() => {
             alert('Texto copiado para a área de transferência');
         }).catch(() => {
             alert('Erro ao copiar texto');
